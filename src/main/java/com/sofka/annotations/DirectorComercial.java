@@ -1,6 +1,14 @@
 package com.sofka.annotations;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class DirectorComercial implements IEmpleadoTareas{
+
+    @Value("${correo.general}")
+    private String correo;
+
+    @Value("${empresa.filial}")
+    private String empresa;
     private final IGenerarInforme informeComercial;
 
     public DirectorComercial(IGenerarInforme informeComercial) {
@@ -14,6 +22,6 @@ public class DirectorComercial implements IEmpleadoTareas{
 
     @Override
     public String getInforme() {
-        return informeComercial.generarInforme();
+        return informeComercial.generarInforme()+correo+empresa;
     }
 }
