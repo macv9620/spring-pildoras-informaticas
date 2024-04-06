@@ -3,21 +3,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-
-<!--    Importar archivo de propiedades-->
-    <context:property-placeholder location="classpath:aplicacion.propiedades"/>
-
-    <bean id="miInformeBean" class="com.sofka.ioc.Informe"></bean>
-
-    <bean id="miEmpleadoBeanConstructor" class="com.sofka.ioc.Director">
-        <constructor-arg ref="miInformeBean"></constructor-arg>
-    </bean>
-
-    <bean id="miEmpleadoBeanSetter" class="com.sofka.ioc.Jefe">
-        <property name="creacionInformes" ref="miInformeBean"></property>
-
-<!--        Establecer variables del archivo que contienen los valores-->
-        <property name="correoGrupal" value="${correoJefes}"></property>
-        <property name="nombreEmpresaGrupal" value="${empresa}"></property>
-    </bean>
+    <context:component-scan base-package="com.sofka.annotations"/>
 </beans>

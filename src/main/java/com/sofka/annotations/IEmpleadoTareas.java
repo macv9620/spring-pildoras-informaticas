@@ -1,4 +1,4 @@
-package com.sofka.ioc;
+package com.sofka.annotations;
 
 public interface IEmpleadoTareas {
     String getTareas();

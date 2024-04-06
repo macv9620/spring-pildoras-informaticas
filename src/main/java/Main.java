@@ -1,5 +1,4 @@
-import com.sofka.ioc.IEmpleadoTareas;
-import com.sofka.ioc.Jefe;
+import com.sofka.annotations.IEmpleadoTareas;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
@@ -9,14 +8,10 @@ public class Main {
         ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 //        2. Genererar la instancia
-        Jefe empleado = contexto.getBean("miEmpleadoBeanSetter", Jefe.class);
+        IEmpleadoTareas empleado = contexto.getBean("directorBean", IEmpleadoTareas.class);
 
         System.out.println(empleado.getTareas());
         System.out.println(empleado.getInforme());
-        System.out.println(empleado.getCorreoGrupal());
-        System.out.println(empleado.getNombreEmpresaGrupal());
-
-
 
         contexto.close();
     }
