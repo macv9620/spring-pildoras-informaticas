@@ -1,13 +1,16 @@
 package com.sofka.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("directorBean")
+@Scope("prototype")
 public class Director implements IEmpleadoTareas{
 
     @Autowired
-    private IGenerarInforme informe;
+    private IGenerarInforme informe2;
 
     @Override
     public String getTareas() {
@@ -16,7 +19,7 @@ public class Director implements IEmpleadoTareas{
 
     @Override
     public String getInforme(){
-        return informe.generarInforme();
+        return informe2.generarInforme();
     }
 
 }
